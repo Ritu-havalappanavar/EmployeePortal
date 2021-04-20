@@ -1,0 +1,37 @@
+/* You can add global styles to this file, and also import other style files */
+
+.content-body {
+    padding: 20px 2% 0;
+}
+
+.card-alignment {
+    justify-content: center;
+    align-items: center;
+}
+
+.header-txt-color {
+    color: #4171FF;
+}
+
+.space-after-header {
+    padding-bottom: 1%;
+}
+
+.warning {
+    color: #be1e2d;
+}
+
+.display-flex {
+    display: flex;
+}
+
+.align-to-end {
+    justify-content: flex-end;
+}
+
+.required {
+    &:after {
+      content: "*";
+      color: red;
+    }
+}

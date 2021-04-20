@@ -1,0 +1,65 @@
+<section class="content-body">
+    <div class="display-flex card-alignment">
+        <h3 class="header-txt-color space-after-header" routerLink="/home">Employee  Registration</h3>
+    </div>
+    <div class="display-flex align-to-end space-after-header">
+        <button class="btn btn-warning" (click)="navigate()">Registered Employee  Details</button>
+    </div>
+    <div class="display-flex card-alignment">
+        <div class="card col-md-4 form-background">
+            <div class="card-body">
+                <form #registrationForm="ngForm">
+                    <div>
+                        <div class="form-group">
+                            <label class="required">First Name</label>
+                            <input type="text" class="form-control" name="First Name"
+                                [(ngModel)]="employeeRegistrationObj.firstName" #First_Name="ngModel" pattern="[a-zA-Z]+"
+                                required>
+                            <div class="warning" *ngIf="First_Name.invalid && (First_Name.touched || First_Name.dirty)">
+                                First Name is required</div>
+                        </div>
+                        <div class="form-group">
+                            <label class="required">Last Name</label>
+                            <input type="text" class="form-control" name="Last Name"
+                                [(ngModel)]="employeeRegistrationObj.lastName" #Last_Name="ngModel" required>
+                            <div class="warning" *ngIf="Last_Name.invalid && (Last_Name.touched || Last_Name.dirty)">
+                                Last Name is required</div>
+                        </div>
+                        <div class="form-group">
+                            <label class="required">Gender</label>
+                            <div>
+                                <label><input type="radio" [(ngModel)]="employeeRegistrationObj.gender" #Gender="ngModel"
+                                        name="gender" value="Male">Male</label>
+                                <label class="space-btn-radio"><input type="radio"
+                                        [(ngModel)]="employeeRegistrationObj.gender" #Gender="ngModel" name="gender"
+                                        value="Female">Female</label>
+                            </div>
+                            <div class="warning" *ngIf="Gender.invalid && (Gender.touched || Gender.dirty)">Gender is
+                                required</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="dob" class="required">Date of Birth</label>
+                            <input type="date" class="form-control" name="Date Of Birth"
+                                [(ngModel)]="employeeRegistrationObj.dateOfBirth" #Date_Of_Birth="ngModel"
+                                [max]="todayDate" required>
+                            <div class="warning"
+                                *ngIf="Date_Of_Birth.invalid && (Date_Of_Birth.touched || Date_Of_Birth.dirty)">Date of
+                                Birth is required</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="department" class="required">Department</label>
+                            <input type="text" class="form-control" name="Department"
+                                [(ngModel)]="employeeRegistrationObj.department" #Department="ngModel" required>
+                            <div class="warning" *ngIf="Department.invalid && (Department.touched || Department.dirty)">
+                                Department is required</div>
+                        </div>
+                        <div>
+                            <button type="submit" class="btn btn-success set-btn-width" (click)="submitRegistration()"
+                                [disabled]="!registrationForm.valid">Submit</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
